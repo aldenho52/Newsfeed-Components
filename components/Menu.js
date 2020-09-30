@@ -47,11 +47,13 @@ function menuMaker (array) {
 
   const menuButton = document.querySelector('.menu-button')
   menuButton.addEventListener('click', event => {
-    menu.classList.toggle('menu--open')
-  })
-
+  menu.classList.toggle('menu--open')})
+  
   return menu
 }
 
 const header = document.querySelector('.header')
 header.appendChild(menuMaker(menuItems))
+
+
+
