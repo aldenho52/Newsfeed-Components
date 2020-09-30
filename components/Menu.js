@@ -56,4 +56,14 @@ const header = document.querySelector('.header')
 header.appendChild(menuMaker(menuItems))
 
 
+// jQuery Code
 
+$(document).ready(function() {
+  $('h1').hover(function() {
+    $(this).css('color', 'red')
+  },
+  function() {
+    $(this).css('color', 'white')
+  })
+  
+})
