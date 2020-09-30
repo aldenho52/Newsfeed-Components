@@ -67,7 +67,7 @@ $(document).ready(function() {
   })
 
   $('.articles').hover(function () {
-    $(this).css('background', 'green')
+    $(this).css('background', 'lightblue')
   },
   function () {
     $(this).css('background', 'white')
