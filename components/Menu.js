@@ -65,5 +65,13 @@ $(document).ready(function() {
   function() {
     $(this).css('color', 'white')
   })
-  
+
+  $('.articles').hover(function () {
+    $(this).css('background', 'green')
+  },
+  function () {
+    $(this).css('background', 'white')
+  })
+
+
 })
