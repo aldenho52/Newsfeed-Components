@@ -165,6 +165,14 @@ function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagr
     }
   })
 
+  const readButton = document.createElement('button')
+  readButton.textContent = 'read'
+  newArticle.appendChild(readButton)
+
+  readButton.addEventListener('click', event => {
+    newArticle.style.display = 'none'
+  })
+
   return newArticle
 
 }
