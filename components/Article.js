@@ -154,10 +154,15 @@ function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagr
   para1.textContent = firstParagraph
   para2.textContent = secondParagraph
   para3.textContent = thirdParagraph
-  spanButton.textContent = '+'
+  spanButton.textContent = 'Click to Expand'
 
   spanButton.addEventListener('click', (event) => {
     newArticle.classList.toggle('article-open')
+    if (spanButton.textContent === 'Click to Expand') {
+      spanButton.textContent = 'Click to Close'
+    } else {
+      spanButton.textContent = 'Click to Expand'
+    }
   })
 
   return newArticle
