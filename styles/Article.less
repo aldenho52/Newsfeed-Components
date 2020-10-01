@@ -11,6 +11,8 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  transition-duration: 500ms;
+
 
   h2 {
     font-size: 28px;
@@ -43,6 +45,21 @@
 
 .article-open {
   height: 400px;
+  transition-duration: 500ms;
+  animation: pulse 500ms 1;
+  background: lightcyan
+}
+
+@keyframes pulse {
+  0% {
+    background-color: white;
+  }
+  50%{
+    background: yellow;
+  }
+  100% {
+    background: lightcyan;
+  }
 }
 
 

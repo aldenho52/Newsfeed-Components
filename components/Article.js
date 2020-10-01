@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Lambda School Changes',
+    date: 'Sep 30th, 2020',
+    firstParagraph: `Lambda School has been experimenting with new leadership models over the last few months and were happy to announce they were successful. As of today, the following changes will occur for all current and new lambda students.`,
+
+    secondParagraph: `The first major change is the cessation of TL groups. TL groups will no longer be here and in their replacement we will have track teams. Each team will consist of 1-3 members from units 1-4. These teams will meet monday through thursday at 4pm to go over leadership skills, working together, and other professional skills necessary to succeed in today\'s work enviornment.`,
+
+    thirdParagraph: `Lambda School will also be implementing a brand new peer mentorship program that is required for every student in participate in. This means you will either have a mentor, be a mentor, or both. Students will meet with their mentors every day at 1:30pm. Unit 1 students will have Unit 3 mentors and unit 2 students will have unit 4 mentors. When you become a unit 3 member, you will be given your own mentee.`
   }
 ];
 
@@ -114,3 +123,62 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+// place to add your articles
+const articles = document.querySelector('.articles')
+
+//instantiate all elements
+
+function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const newArticle = document.createElement('div')
+  const h2 = document.createElement('h2')
+  const dateText = document.createElement('p')
+  const para1 = document.createElement('p')
+  const para2 = document.createElement('p')
+  const para3 = document.createElement('p')
+  const spanButton = document.createElement('span')
+
+  newArticle.appendChild(h2)
+  newArticle.appendChild(dateText)
+  newArticle.appendChild(para1)
+  newArticle.appendChild(para2)
+  newArticle.appendChild(para3)
+  newArticle.appendChild(spanButton)
+
+  newArticle.classList.add('article')
+  dateText.classList.add('date')
+  spanButton.classList.add('expandButton')
+
+  h2.textContent = title
+  dateText.textContent = date
+  para1.textContent = firstParagraph
+  para2.textContent = secondParagraph
+  para3.textContent = thirdParagraph
+  spanButton.textContent = 'Click to Expand'
+
+  spanButton.addEventListener('click', (event) => {
+    newArticle.classList.toggle('article-open')
+    if (spanButton.textContent === 'Click to Expand') {
+      spanButton.textContent = 'Click to Close'
+    } else {
+      spanButton.textContent = 'Click to Expand'
+    }
+  })
+
+  const readButton = document.createElement('button')
+  readButton.textContent = 'read'
+  newArticle.appendChild(readButton)
+
+  readButton.addEventListener('click', event => {
+    newArticle.style.display = 'none'
+  })
+
+  return newArticle
+
+}
+
+data.forEach (item => {
+  const article = articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
+  articles.appendChild(article)
+})
+
